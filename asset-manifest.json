@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.274d8910.css",
+    "main.js": "/static/js/main.d2a77388.js",
+    "static/media/app-mainscreen-bg.png": "/static/media/app-mainscreen-bg.7c348138086f8b362aa6.png",
+    "static/media/car-bg-new1.png": "/static/media/car-bg-new1.a4e618ab56e6426fa3de.png",
+    "index.html": "/index.html",
+    "main.274d8910.css.map": "/static/css/main.274d8910.css.map",
+    "main.d2a77388.js.map": "/static/js/main.d2a77388.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.274d8910.css",
+    "static/js/main.d2a77388.js"
+  ]
+}
