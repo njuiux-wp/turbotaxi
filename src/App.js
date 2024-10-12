@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import BookingForm from './components/BookingForm';
 import Confirmation from './components/Confirmation';
