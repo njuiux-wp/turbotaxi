@@ -50,8 +50,10 @@ const BookingForm = () => {
     setShowModal(true);
   };
 
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://turbotaxi-backend.onrender.com';
+
   const confirmBooking = async () => {
-    const response = await fetch('http://localhost:5002/api/book', {
+    const response = await fetch(`${backendUrl}/api/book`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +74,7 @@ const BookingForm = () => {
       <Link to="/" className="bookingform-logo-wrapper">
         <h1 className="MainLogo text-center">Turbo<span>Taxi</span></h1>
       </Link>
-      <h2 className="Page-Title mt-8">Booking</h2>
+      <h2 className="Page-Title mt-8">Book Your Cab</h2>
       <form onSubmit={handleSubmit} className="w-full mb-6">
         <div className="form-group">
           <label className="form-lbl">Name</label>

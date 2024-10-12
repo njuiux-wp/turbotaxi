@@ -9,8 +9,12 @@
   --bg-btn: #b3fd12;
   --text-white: #fff;
   --text-black: #000;
+  --text-grey: #74787b;
+  --text-grey1: #868b8d;
   --bg-black: #000;
   --bg-white: #fff;
+  --bg-dot1: #90761e;
+  --bg-dot2: #66900a;
   --ff-ubuntu: "Ubuntu", sans-serif;
   --ff-protest-strike-regular: "Protest Strike", sans-serif;
 }
@@ -29,7 +33,7 @@ body {
 }
 
 .fs-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .fs-18 {
@@ -54,6 +58,10 @@ body {
 
 .link-color {
   color: var(--bg-btn);
+}
+
+.text-themegrey {
+  color: var(--text-grey);
 }
 
 .MainLogo {
@@ -201,16 +209,16 @@ body {
 }
 
 .modal {
-  background: var(--bg-secondary);
-  padding: 20px;
-  border-radius: 10px;
+  @apply fixed left-0 bottom-0 w-full;
+  background: var(--bg-black);
+  padding: 40px 30px;
+  border-radius: 30px 30px 0 0;
   max-width: 400px;
-  margin: auto;
   z-index: 9999;
 }
 
 .modal-overlay {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(36, 36, 36, 0.75);
   position: fixed;
   top: 0;
   left: 0;
@@ -229,4 +237,40 @@ body {
 
 .react-time-picker__wrapper {
   border: 0 none !important;
+}
+
+.userInfo-wrapper {
+  @apply w-full p-6 bg-new-secondary mb-10;
+  border-radius: 20px;
+}
+
+.locationBox-wrapper {
+  @apply relative w-full;
+}
+
+.locationBox-wrapper p {
+  @apply relative pl-[25px] mb-[40px];
+}
+
+.locationBox-wrapper p::before {
+  @apply absolute left-0 top-[2px] w-[12px] h-[12px] rounded-full;
+  content: "";
+  background-color: var(--bg-dot1);
+  border: 1px solid var(--text-grey1);
+  z-index: 1;
+}
+
+.locationBox-wrapper p:last-child:before {
+  background-color: var(--bg-dot2);
+}
+
+.locationBox-wrapper p::after {
+  @apply absolute left-[5px] top-[6px] w-[2px] h-[60px];
+  content: "";
+  background-color: var(--text-grey1);
+  z-index: 0;
+}
+
+.locationBox-wrapper p:last-child::after {
+  display: none !important;
 }
