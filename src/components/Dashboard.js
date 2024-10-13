@@ -54,13 +54,13 @@ const Dashboard = () => {
       )}
 
       {/* Show "Book Now" section only on desktop */}
-      {!isMobile && (
+      {/* {!isMobile && ( */}
         <div className="dashboard-content-wrapper pb-10">
           <h3 className="Page-Title text-center">Instant Rides at Your Fingertips, Anytime, Anywhere</h3>
           <p className="Page-subTitle text-center">Experience the Future of Travel: Fast, Reliable, and Always on Time!</p>
           <Link to="/booking" className="primary-btn my-8 mx-auto">Book Now</Link>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 };
