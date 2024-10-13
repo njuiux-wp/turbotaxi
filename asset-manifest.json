@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/turbotaxi/static/css/main.ac53f430.css",
-    "main.js": "/turbotaxi/static/js/main.c10472d4.js",
-    "static/media/app-mainscreen-bg.png": "/turbotaxi/static/media/app-mainscreen-bg.7c348138086f8b362aa6.png",
-    "static/media/car-bg-new1.png": "/turbotaxi/static/media/car-bg-new1.a4e618ab56e6426fa3de.png",
+    "main.css": "/turbotaxi/static/css/main.4a9200b8.css",
+    "main.js": "/turbotaxi/static/js/main.70d78622.js",
+    "static/media/app-mainscreen-bg.png": "/turbotaxi/static/media/app-mainscreen-bg.177f1610230e04011521.png",
+    "static/media/car-icon.png": "/turbotaxi/static/media/car-icon.c01a0091b5885822fd2d.png",
     "index.html": "/turbotaxi/index.html",
-    "main.ac53f430.css.map": "/turbotaxi/static/css/main.ac53f430.css.map",
-    "main.c10472d4.js.map": "/turbotaxi/static/js/main.c10472d4.js.map"
+    "main.4a9200b8.css.map": "/turbotaxi/static/css/main.4a9200b8.css.map",
+    "main.70d78622.js.map": "/turbotaxi/static/js/main.70d78622.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac53f430.css",
-    "static/js/main.c10472d4.js"
+    "static/css/main.4a9200b8.css",
+    "static/js/main.70d78622.js"
   ]
 }
