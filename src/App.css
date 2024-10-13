@@ -40,6 +40,18 @@ body {
   font-size: 18px;
 }
 
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-26 {
+  font-size: 26px !important;
+}
+
+.fs-30 {
+  font-size: 30px !important;
+}
+
 .fs-50 {
   font-size: 50px;
 }
@@ -209,12 +221,17 @@ body {
 }
 
 .modal {
-  @apply fixed left-0 bottom-0 w-full;
+  @apply fixed bottom-0 w-full;
   background: var(--bg-black);
   padding: 40px 30px;
   border-radius: 30px 30px 0 0;
   max-width: 400px;
   z-index: 9999;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .modal-overlay {
@@ -245,11 +262,11 @@ body {
 }
 
 .locationBox-wrapper {
-  @apply relative w-full;
+  @apply relative w-full flex items-center justify-between;
 }
 
 .locationBox-wrapper p {
-  @apply relative pl-[25px] mb-[40px];
+  @apply relative px-[20px] mt-[110px] mb-[10px];
 }
 
 .locationBox-wrapper p::before {
@@ -262,15 +279,81 @@ body {
 
 .locationBox-wrapper p:last-child:before {
   background-color: var(--bg-dot2);
+  left: inherit;
+  right: 0;
 }
 
-.locationBox-wrapper p::after {
-  @apply absolute left-[5px] top-[6px] w-[2px] h-[60px];
+.locationBox-wrapper::after {
+  @apply absolute left-[5px] top-[42px] h-[80px];
   content: "";
-  background-color: var(--text-grey1);
   z-index: 0;
+  background-color: transparent;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border: 1px dashed var(--text-grey1);
+  border-bottom: 0;
+  width: calc(100% - 10px);
 }
 
-.locationBox-wrapper p:last-child::after {
-  display: none !important;
+.locationPin {
+  @apply absolute link-color;
+  right: -6px;
+  top: -14px;
+  z-index: 99;
+}
+
+.dateTime-wrapper, 
+.carIcon-wrapper {
+  @apply absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 70px;
+  z-index: 99;
+}
+
+.carIcon-wrapper {
+  top: 22px;
+}
+
+.carIcon-wrapper img {
+  width: 90px;
+}
+
+/* Loader.css */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.loader-content {
+  @apply relative w-full flex flex-col items-center justify-center text-center;
+}
+
+.moving-road {
+  @apply relative w-full h-[4px];
+  background: linear-gradient(to right, var(--text-grey1) 33%, rgba(0, 0, 0, 0) 0%);
+  background-position: 0 0;
+  background-size: 20px 100%; /* Adjust the size for the dashes */
+  animation: move-road 1s linear infinite;
+}
+
+/* Keyframes for animating the background */
+@keyframes move-road {
+  from {
+      background-position: 20px 0;
+  }
+  to {
+      background-position: 0 0;
+  }
 }
