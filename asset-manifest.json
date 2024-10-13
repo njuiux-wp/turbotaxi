@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/turbotaxi/static/css/main.70d87199.css",
-    "main.js": "/turbotaxi/static/js/main.3ed26587.js",
+    "main.js": "/turbotaxi/static/js/main.b645db1b.js",
     "static/media/app-mainscreen-bg.png": "/turbotaxi/static/media/app-mainscreen-bg.7c348138086f8b362aa6.png",
     "static/media/car-bg-new1.png": "/turbotaxi/static/media/car-bg-new1.a4e618ab56e6426fa3de.png",
     "index.html": "/turbotaxi/index.html",
     "main.70d87199.css.map": "/turbotaxi/static/css/main.70d87199.css.map",
-    "main.3ed26587.js.map": "/turbotaxi/static/js/main.3ed26587.js.map"
+    "main.b645db1b.js.map": "/turbotaxi/static/js/main.b645db1b.js.map"
   },
   "entrypoints": [
     "static/css/main.70d87199.css",
-    "static/js/main.3ed26587.js"
+    "static/js/main.b645db1b.js"
   ]
 }
