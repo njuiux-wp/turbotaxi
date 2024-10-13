@@ -28,7 +28,7 @@ const SummaryModal = ({ isOpen, formData, onClose, onConfirm }) => {
             overlayClassName="modal-overlay"
         >
             {/* Full-page loader */}
-            {isLoading && <Loader message="Please wait, confirming the details..." />}
+            {isLoading && <Loader message="Buckle up! We are confirming your data.." />}
 
             <div className="w-full">
                 <h2 className="Page-Title mt-0">Summary</h2>
