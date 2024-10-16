@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
-import TimePicker from 'react-time-picker';
-import 'react-datepicker/dist/react-datepicker.css';
-import 'react-time-picker/dist/TimePicker.css';
-import 'react-clock/dist/Clock.css';
 import SummaryModal from './SummaryModal';
 
 const BookingForm = () => {
@@ -13,10 +8,10 @@ const BookingForm = () => {
     uname: '',
     uphone: '',
     uemail: '',
-    departureDate: null,
-    departureTime: '10:00',
-    returnDate: null,
-    returnTime: '10:00',
+    departureDate: '',
+    departureTime: '',
+    returnDate: '',
+    returnTime: '',
     from: '',
     to: '',
     type: 'one-way',
@@ -28,22 +23,7 @@ const BookingForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Update to handle date formatting (use string formatting if rendering)
-  const handleDateChange = (date) => {
-    setFormData({ ...formData, departureDate: date });
-  };
-
-  const handleReturnDateChange = (date) => {
-    setFormData({ ...formData, returnDate: date });
-  };
-
-  const handleTimeChange = (time) => {
-    setFormData({ ...formData, departureTime: time });
-  };
-
-  const handleReturnTimeChange = (time) => {
-    setFormData({ ...formData, returnTime: time });
-  };
+  const today = new Date().toISOString().split('T')[0]; // Get today's date
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -125,69 +105,48 @@ const BookingForm = () => {
         <div className="grid grid-cols-2 gap-4">
           <div className="form-group">
             <label className="form-lbl">Departure Date</label>
-            <div className="input-extend-group">
-              <DatePicker
-                selected={formData.departureDate}
-                onChange={handleDateChange}
-                className="form-input cursor-pointer"
-                placeholderText="MM/DD/YYYY"
-                required
-              />
-              <span className="material-symbols-outlined" onClick={() => document.querySelector('.react-datepicker-wrapper input').focus()}>
-                calendar_month
-              </span>
-            </div>
+            <input
+              className="form-input"
+              type="date"
+              name="departureDate"
+              min={today}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="form-group">
             <label className="form-lbl">Departure Time</label>
-            <div className="input-extend-group">
-              <TimePicker
-                onChange={handleTimeChange}
-                value={formData.departureTime}
-                className="form-input cursor-pointer"
-                clockClassName="custom-clock"
-                disableClock
-                required
-              />
-              <span
-                className="material-symbols-outlined"
-                onClick={() => document.querySelector('.react-time-picker__inputGroup input').focus()}
-              >
-                calendar_clock
-              </span>
-            </div>
+            <input
+              className="form-input"
+              type="time"
+              name="departureTime"
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
         {formData.type === 'round-trip' && (
           <div className="grid grid-cols-2 gap-4">
             <div className="form-group">
               <label className="form-lbl">Return Date</label>
-              <div className="input-extend-group">
-                <DatePicker
-                  selected={formData.returnDate}
-                  onChange={handleReturnDateChange}
-                  className="form-input cursor-pointer"
-                  placeholderText="MM/DD/YYYY"
-                  required
-                />
-                <span className="material-symbols-outlined" onClick={() => document.querySelector('.react-datepicker-wrapper input').focus()}>
-                  calendar_month
-                </span>
-              </div>
+              <input
+                className="form-input"
+                type="date"
+                name="returnDate"
+                min={formData.departureDate || today}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="form-group">
               <label className="form-lbl">Return Time</label>
-              <div className="input-extend-group">
-                <TimePicker
-                  onChange={handleReturnTimeChange}
-                  value={formData.returnTime}
-                  className="form-input cursor-pointer"
-                  required
-                />
-                <span className="material-symbols-outlined" onClick={() => document.querySelector('.react-time-picker').focus()}>
-                  calendar_clock
-                </span>
-              </div>
+              <input
+                className="form-input"
+                type="time"
+                name="returnTime"
+                onChange={handleChange}
+                required
+              />
             </div>
           </div>
         )}

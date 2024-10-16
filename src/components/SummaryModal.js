@@ -6,18 +6,13 @@ import Loader from '../widgets/Loader';
 const SummaryModal = ({ isOpen, formData, onClose, onConfirm }) => {
     const [isLoading, setIsLoading] = useState(false);
 
-    // Format the dates if they exist
-    const formattedDepartureDate = formData.departureDate
-        ? formData.departureDate.toLocaleDateString()
-        : 'N/A';
-    const formattedReturnDate = formData.returnDate
-        ? formData.returnDate.toLocaleDateString()
-        : 'N/A';
+    const formattedDepartureDate = formData.departureDate || 'N/A';
+    const formattedReturnDate = formData.returnDate || 'N/A';
 
     const handleConfirmClick = async () => {
-        setIsLoading(true); // Start loading
-        await onConfirm();  // Wait for the confirmation action to complete
-        setIsLoading(false); // Stop loading
+        setIsLoading(true);
+        await onConfirm();
+        setIsLoading(false);
     };
 
     return (
@@ -32,18 +27,17 @@ const SummaryModal = ({ isOpen, formData, onClose, onConfirm }) => {
 
             <div className="w-full">
                 <h2 className="Page-Title mt-0">Summary</h2>
-                <div className="locationBox-wrapper">
+                <div className={`locationBox-wrapper ${formData.type === 'round-trip' ? 'locationBox-roundTrip-wrapper' : ''}`}>
                     <div className="carIcon-wrapper">
                         <img src={carIcon} className="w-full" alt="car icon" />
                     </div>
-                    <div className="dateTime-wrapper">
+                    <div className={`dateTime-wrapper ${formData.type === 'round-trip' ? 'roundTrip-dateTime-wrapper' : ''}`}>
                         <div className="Page-subTitle">
                             <span className="fs-12">{formattedDepartureDate} - {formData.departureTime}</span>
                         </div>
                         {formData.type === 'round-trip' && (
                             <>
                                 <div className="Page-subTitle">
-                                    <b className="font-[600] text-themegrey fs-12">Return: </b>
                                     <span className="fs-12">{formattedReturnDate} - {formData.returnTime}</span>
                                 </div>
                             </>
